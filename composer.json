@@ -1,0 +1,19 @@
+{
+    "name": "merterciyescagan/thanos",
+    "description": "for fun",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Merterciyescagan\\Thanos\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "erciyescagan",
+            "email": "erciyescagan@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
