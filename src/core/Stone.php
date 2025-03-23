@@ -25,15 +25,7 @@ class Stone {
 	
 	public function __construct(StoneInterface $stone) 
 	{	
-
 		$this->stone = $stone;
-		$this->stone->addStone();
-	}
-
-
-	protected function addStone()
-	{	
-		//echo sprintf("%s stone has been implemented!\n", $this->name);
 	}
 
 	public function use($variable)
