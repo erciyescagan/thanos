@@ -17,8 +17,12 @@ final class Space extends Stone implements StoneInterface {
 		$this->name = "space";
 	}
 
-	public function use($variable): string {
-		return implode(str_repeat(" ", rand(1, 100)), str_split($variable));
+	public function use($times = null): self {
+		$times = $times ?? 1;
+		for ($i=0; $i < $times ;$i++) { 
+			$this->text = implode(str_repeat(" ", rand(1, 10)), str_split($this->text)); 
+		}
+		return $this;
 	}
 }
 

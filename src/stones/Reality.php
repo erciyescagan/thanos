@@ -17,9 +17,13 @@ final class Reality extends Stone implements StoneInterface {
 		$this->name = "reality";
 	}
 
-	public function use($variable): string
+	public function use($times = null): self
 	{
-		return str_shuffle($variable);
+		$times = $times ?? 1;
+		for ($i=0; $i < $times ; $i++) { 
+			$this->text = str_shuffle($this->text);
+		}		
+		return $this;
 	}
 }
 

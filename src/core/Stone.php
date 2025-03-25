@@ -22,21 +22,22 @@ use Exception;
 class Stone {
 
 	public StoneInterface $stone;
+	protected string $text;
 	
 	public function __construct(StoneInterface $stone) 
 	{	
 		$this->stone = $stone;
 	}
 
-	public function use($variable)
+	public function setText($text) 
 	{
-		echo sprintf("%s stone has been used!\n", $this->stone->name);
-		
-		$value = $this->stone->use($variable);
-
-		return $value;
+		$this->stone->text = $text;
+		return $this->stone;
 	}
 
+	public function getResult(): string {
+		return $this->text;
+	}
 
 		
 }

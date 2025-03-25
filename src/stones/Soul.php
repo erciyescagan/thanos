@@ -17,9 +17,14 @@ final class Soul extends Stone implements StoneInterface {
 		$this->name = "soul";	
 	}
 
-	public function use($variable): string 
-	{
-		return implode(" | ", array_fill(0, rand(0,100), $variable));
+	public function use($times = null): self
+	{	
+		$times = $times ?? 1;
+		for ($i=0; $i < $times ; $i++) { 
+			$this->text = implode(" | ", array_fill(0, rand(1, 10), $this->text));
+		}
+
+		return $this;
 
 	}
 }

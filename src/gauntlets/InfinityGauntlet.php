@@ -13,7 +13,7 @@ class InfinityGauntlet extends Gauntlet implements GauntletInterface {
 
 	public string $name = "Infinity Gauntlet";
 
-	public function snap($data)
+	public function snap($data): array
 	{
 		shuffle($data);
 		$half = floor(count($data) / 2);

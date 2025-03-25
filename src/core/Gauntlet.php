@@ -15,11 +15,13 @@ class Gauntlet {
 	public array $implementedStones = [];
 	private GauntletInterface $gauntletInterface;
 
-	public function snap($data)
+	public function snap($data): array
 	{		
 		if ($this->checkGauntletAllSet() && $this->checkDataArrayIsNotNull($data)) {
 			return $this->gauntletInterface->snap($data);
 		} 
+
+		return [];
 
 		throw new Exception("Please set all stones if you want to use gauntlet!");
 
@@ -30,21 +32,21 @@ class Gauntlet {
 	{	
 		$this->gauntletInterface = $gauntletInterface;
 		$this->implementedStones = $implementedStones;
-	
-		echo sprintf("%s has been set!!\n", $this->gauntletInterface->name);
 	}
 
  	private function checkGauntletAllSet(): bool
     {
         $requiredStones = ["mind", "power", "reality", "soul", "space", "time"];
         $existingStones = [];
-	
-	    $existingStones = array_map(fn($stone) => $stone->stone->name ?? null, $this->implementedStones);
+		
+		if (!empty($this->implementedStones)) {
+		    $existingStones = array_map(fn($stone) => $stone->stone->name ?? null, $this->implementedStones);
+		}
 
 	    return empty(array_diff($requiredStones, $existingStones));
     }
 
-	private function checkDataArrayIsNotNull($data) 
+	private function checkDataArrayIsNotNull($data): bool
 	{	
 
 		if (!empty($data)) {
@@ -52,11 +54,8 @@ class Gauntlet {
 		}
 
 		throw new Exception("Please define a valid data array!");
-	}
+		return false;
 
-	private function isMultidimensionalArray(array $array): bool 
-	{
-		return count(array_filter($array, 'is_array')) > 0;
 	}
 }
 
