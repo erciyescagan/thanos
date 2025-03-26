@@ -33,3 +33,11 @@ class Stone {
 	{
 		$this->stone->text = $text;
 		return $this->stone;
+	}
+
+	public function getResult(): string {
+		return $this->text;
+	}		
+}
+
+?>
