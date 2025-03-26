@@ -17,7 +17,7 @@ final class Reality extends Stone implements StoneInterface {
 		$this->name = "reality";
 	}
 
-	public function use($times = null): self
+	public function use(int $times = null): self
 	{
 		$times = $times ?? 1;
 		for ($i=0; $i < $times ; $i++) { 

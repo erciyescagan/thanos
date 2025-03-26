@@ -20,7 +20,7 @@ final class Power extends Stone implements StoneInterface {
 		
 	}
 	
-	public function use($times = null): self
+	public function use(int $times = null): self
 	{
 		$times = $times ?? 1;
 		for ($i=0; $i < $times; $i++) { 
@@ -41,10 +41,10 @@ final class Power extends Stone implements StoneInterface {
 
 	}
 
-	private function ifTextIsNotNull($text): void {
+	private function ifTextIsNotNull(string $text): void {
 		$pos = $this->getRandomPosition($text);
 		$this->letterPos[] = $pos;
-	   	$this->text = str_replace($pos, "*", $text);
+	   	$this->text = substr($this->text, 0, $pos) . "*" . substr($this->text, $pos + 1);	
 	}
 	private function getRandomPosition(string $text): int {
 	    do {

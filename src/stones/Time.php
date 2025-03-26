@@ -21,9 +21,9 @@ final class Time extends Stone implements StoneInterface {
 		$this->name = "time";
 	}	
 	
-	public function use($times = null): self {
+	public function use(int $times = null): self {
 		$this->times += $times ?? 1;
-		$interval = explode($this->text[0], $this->text)[1] * $this->times;
+		$interval = $this->text * $this->times;
 		$this->date = $this->calculateDate($interval, new dateTime());
 		return $this;
 	}
@@ -33,11 +33,9 @@ final class Time extends Stone implements StoneInterface {
 		return $this->date;
 	}
 
-	private function calculateDate($interval, $dateTime): string {
-	
-		$symbol = str_split($this->text)[0];
+	private function calculateDate(int $interval, dateTime $dateTime): string {
 
-		if ($symbol == "+") {
+		if ($this->text > 0) {
 			$dateTime = $dateTime->add(new DateInterval("P" . abs($interval) . "D"));
 		} else {
 			$dateTime = $dateTime->sub(new DateInterval("P" . abs($interval) . "D"));

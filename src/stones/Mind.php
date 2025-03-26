@@ -18,7 +18,7 @@ final class Mind extends Stone implements StoneInterface {
 		$this->name = "mind";
 	}
 
-	public function use($times = null): self {
+	public function use(int $times = null): self {
 
 		$times = $times ?? 1;
 		
