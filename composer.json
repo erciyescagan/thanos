@@ -1,6 +1,6 @@
 {
     "name": "merterciyescagan/thanos",
-    "description": "for fun",
+    "description": "Thanos is a PHP-based library designed to emulate the power of the Infinity Gauntlet. It allows users to manipulate data using the six Infinity Stones: Mind, Power, Reality, Soul, Space, and Time. Each stone has unique abilities that alter the given data.",
     "type": "library",
     "license": "MIT",
     "autoload": {
