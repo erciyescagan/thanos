@@ -36,19 +36,28 @@ final class Power extends Stone implements StoneInterface {
 
 	private function ifTextIsNull(): void {
 		$pos = $this->getRandomPosition($this->text);
-		$this->letterPos[] = $pos;
-		$this->text = substr($this->text, 0, $pos) . "*" . substr($this->text, $pos + 1);	
+		if ($this->text[$pos] != " ") {
+			$this->text = substr($this->text, 0, $pos) . "*" . substr($this->text, $pos + 1);	
+			$this->letterPos[] = $pos;
+
+		} else {
+			$this->ifTextIsNull();
+		}
 
 	}
 
 	private function ifTextIsNotNull(string $text): void {
 		$pos = $this->getRandomPosition($text);
-		$this->letterPos[] = $pos;
-	   	$this->text = substr($this->text, 0, $pos) . "*" . substr($this->text, $pos + 1);	
+		if ($text[$pos] != " ") {
+	   		$this->text = substr($this->text, 0, $pos) . "*" . substr($this->text, $pos + 1);	
+			$this->letterPos[] = $pos;
+		} else {
+			$this->ifTextIsNotNull($text);
+		}
 	}
 	private function getRandomPosition(string $text): int {
 	    do {
-	        $pos = rand(1, strlen($text));
+	        $pos = rand(0, strlen($text) - 1);
 	    } while (in_array($pos, $this->letterPos));
 
 	    $this->letterPos[] = $pos;
