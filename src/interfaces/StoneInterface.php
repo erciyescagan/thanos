@@ -3,7 +3,7 @@
 namespace thanos\interfaces;
 
 interface StoneInterface {
-	public function use();
+	public function use(): self;
 //	public function getResult();
 
 }

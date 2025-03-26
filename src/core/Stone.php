@@ -29,7 +29,7 @@ class Stone {
 		$this->stone = $stone;
 	}
 
-	public function setText($text) 
+	public function setText($text) : StoneInterface
 	{
 		$this->stone->text = $text;
 		return $this->stone;
@@ -37,9 +37,7 @@ class Stone {
 
 	public function getResult(): string {
 		return $this->text;
-	}
-
-		
+	}		
 }
 
 ?>

@@ -53,7 +53,7 @@ class Gauntlet {
 			return true;
 		}
 
-		throw new Exception("Please define a valid data array!");
+		throw new Exception("Please define a valid array!");
 		return false;
 
 	}
